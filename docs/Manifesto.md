@@ -1,3 +1,4 @@
+
 # Adaptive OS - Documentation
 
 ## 1. Manifesto
@@ -25,5 +26,80 @@ Mục tiêu của nó không phải là tốc độ tối đa, mà là **khả n
 | -----------------------------------------------------   |                     |
 | Protection Layer                                        | Communication Layer |
 | -----------------------------------------------------   |                     |
-| Plugin Manager                                   c
+| Plugin Manager                                          | Behavior Engine     |
+| +-----------------------------------------------------+ |                     |
+         |                   |
+         v                   v
+   Hardware/Driver     External Systems (IBCS, DIP)
+
+```
+
+### Thành phần chính
+- **Core:** Nơi quản lý vòng đời hệ thống, plugin, và cơ chế introspection.  
+- **Introspection Engine:** Quan sát runtime, phát hiện pattern, sinh metadata.  
+- **Adaptation Engine:** Thực thi meta-learning, fuzzy logic, Bayesian optimization để cập nhật hành vi.  
+- **Protection Layer:** Cung cấp rollback, self-defense, sandbox.  
+- **Behavior Engine:** Mô hình hóa và thực thi các rule/hành vi thích ứng.  
+- **Communication Layer:** Cho phép trao đổi dữ liệu với DIP, IBCS, hoặc hệ thống phân tán.  
+- **Plugin Manager:** Hỗ trợ hot-load/unload module viết bằng C, Lua, Rust.  
+
+### Nguyên tắc thiết kế
+- **Modularity:** Mọi phần đều là module.  
+- **Resilience:** Tự động phục hồi khi có lỗi.  
+- **Transparency:** Trạng thái và quyết định phải được log để con người kiểm toán.  
+- **Minimalism:** Giữ hạt nhân gọn, để logic phức tạp nằm ở plugin.  
+
+---
+
+## 3. API
+
+### Core API
+```c
+// Khởi tạo hệ điều hành
+int aos_init();
+
+// Nạp plugin
+int aos_plugin_load(const char *path);
+```
+## 4. Roadmap & Best Practices
+### Roadmap
+
+Phase 1 - Kernel Introspection:
+
+Tích hợp DIP để quan sát driver.
+
+Ghi log hành vi cơ bản.
+
+Phase 2 - Behavior Engine:
+
+Thiết lập rule engine.
+
+Thử nghiệm adaptive policies.
+
+Phase 3 - Protection Layer:
+
+Rollback + self-defense.
+
+Tích hợp sandbox + plugin isolation.
+
+Phase 4 - Distributed Adaptive OS:
+
+Nhiều node chia sẻ dữ liệu introspection.
+
+Hình thành Adaptive Network.
+
+// Gỡ plugin
+int aos_plugin_unload(const char *id);
+
+// Shutdown
+
+## 5. Notes
+
+Adaptive OS không nhằm thay thế Linux/Windows ngay lập tức, mà hoạt động song song như một lớp introspective kernel.
+
+Plugin có thể viết bằng C, Lua, Rust, giữ sự linh hoạt nhưng vẫn kiểm soát bảo mật.
+
+Toàn bộ thiết kế đặt trọng tâm vào khả năng tiến hóa: hôm nay OS học được rule A, ngày mai có thể tự viết lại rule B.
+``` c
 int aos_shutdown();
+```
