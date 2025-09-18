@@ -59,10 +59,45 @@ int aos_init();
 
 // Nạp plugin
 int aos_plugin_load(const char *path);
+```
+## 4. Roadmap & Best Practices
+### Roadmap
+
+Phase 1 - Kernel Introspection:
+
+Tích hợp DIP để quan sát driver.
+
+Ghi log hành vi cơ bản.
+
+Phase 2 - Behavior Engine:
+
+Thiết lập rule engine.
+
+Thử nghiệm adaptive policies.
+
+Phase 3 - Protection Layer:
+
+Rollback + self-defense.
+
+Tích hợp sandbox + plugin isolation.
+
+Phase 4 - Distributed Adaptive OS:
+
+Nhiều node chia sẻ dữ liệu introspection.
+
+Hình thành Adaptive Network.
 
 // Gỡ plugin
 int aos_plugin_unload(const char *id);
 
 // Shutdown
+
+## 5. Notes
+
+Adaptive OS không nhằm thay thế Linux/Windows ngay lập tức, mà hoạt động song song như một lớp introspective kernel.
+
+Plugin có thể viết bằng C, Lua, Rust, giữ sự linh hoạt nhưng vẫn kiểm soát bảo mật.
+
+Toàn bộ thiết kế đặt trọng tâm vào khả năng tiến hóa: hôm nay OS học được rule A, ngày mai có thể tự viết lại rule B.
 int aos_shutdown();
 ```
