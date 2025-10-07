@@ -2,7 +2,8 @@
 
 **Adaptive OS** là một hệ điều hành lai: vừa **độc lập** như một hệ sinh thái riêng, vừa **phân tán** để đảm bảo an toàn và khả năng tự thích nghi, nhưng vẫn kế thừa những ưu điểm từ **Windows** (UI/UX, dịch vụ quản lý hệ thống) và **Linux** (modular, quyền root, cộng đồng phát triển).
 
-<img height = "512" width = "512" alt = "image" src = "https://copilot.microsoft.com/th/id/BCO.b5d74157-0c66-4773-85d1-97e5a4b1f976.png"/>
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/79658f28-9111-48fd-ae8d-2577af348396" />
+
 
 ---
 
