@@ -18,4 +18,3 @@ Mọi đóng góp đều cần hướng đến 3 nguyên tắc:
 3. Chạy toàn bộ test trước khi mở pull request:
    ```bash
    ./scripts/run_tests.sh
-``` 
