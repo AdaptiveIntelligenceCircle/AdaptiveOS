@@ -1,4 +1,4 @@
-#include "include/ai_core.h"
+#include "../include/ai_core.h"
 #include "../../common/logging.h"
 
 using namespace std; 
