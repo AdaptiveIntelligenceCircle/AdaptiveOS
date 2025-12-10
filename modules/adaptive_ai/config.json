@@ -1,0 +1,11 @@
+{
+  "module_name": "adaptive_ai",
+  "version": "0.1.0",
+  "dependencies": ["common"],
+  "ai_hooks": [
+    "on_system_load",
+    "on_file_access",
+    "on_network_packet"
+  ],
+  "model_path": "/adaptive/models/main.pt"
+}
