@@ -19,7 +19,7 @@ bool unload_plugin(const char* name);
 void list_plugins();
 
 // Metadata parser
-bool parse_plugin_metadata(const char* filepath, PluginInfo* info);
+bool parse_plugin_metadata(const char* filepath, PluginInfo* info){}
 
 #endif // PLUGIN_MANAGER_H
 
