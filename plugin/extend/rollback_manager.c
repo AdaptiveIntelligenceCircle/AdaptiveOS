@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void loag_crash_and_rollback (const PluginInfo *plugin)
+void log_crash_and_rollback (const PluginInfo *plugin)
 {
     printf("Rollback - Plugin '%s' crashed"); 
     // ghi loi vao file log ..// 
