@@ -1,6 +1,7 @@
 #include "remote_extension_loader.h"
 #include <filesystem> 
 
+#include "remote_registry.h"
 #include <fstream> 
 using namespace std; 
 
@@ -27,6 +28,20 @@ namespace adaptive :: plugin :: remote
             return RemoteLoadResult :: QUARANTINED; 
         }
         return RemoteLoadResult :: ACCEPTED; 
+
+        bool verified = verify_signature(uri);
+
+    RemoteRecord record;
+    record.uri = uri;
+    record.hash = "TODO_HASH";
+    record.verified = verified;
+
+    // ext_id sẽ do governance/lifecycle gán sau
+    RemoteRegistry::instance().register_extension(uri, record);
+
+    return verified
+        ? RemoteLoadResult::ACCEPTED
+        : RemoteLoadResult::QUARANTINED;
     }
 
     bool RemoteExtensionLoader :: verify_signature(const 
