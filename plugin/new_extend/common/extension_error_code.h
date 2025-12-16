@@ -12,7 +12,7 @@ namespace adaptive :: plugin :: common
         INVALID_STATE, 
         PERMISSION_DENIED, 
 
-        COMPANBILITY_ERROR, 
+        COMPABILITY_ERROR, 
         SIGNATURE_ERROR, 
         SANDBOX_ERROR, 
 

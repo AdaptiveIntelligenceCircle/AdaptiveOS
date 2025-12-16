@@ -10,7 +10,7 @@ namespace adaptive :: plugin :: compability
     {
         public: 
         common :: result<bool> check(
-            const CompabilityChecker &profile 
+            const CompabilityProfile &profile 
         ) const ; 
     }; 
 }
