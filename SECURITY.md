@@ -1,27 +1,31 @@
 # Security Policy
 
-Adaptive OS có cơ chế tự phòng thủ, tuy nhiên chúng tôi vẫn chào đón báo cáo lỗi bảo mật.
+Adaptive OS has a self-defense mechanism; however, we still welcome security bug reports.
 
-## 📬 Báo cáo lỗi bảo mật
-- Gửi email: `<security_contact_email>`
-- Không công khai chi tiết lỗi cho đến khi được vá.
+## 📬 Security Bug Report
+- Email address: `<security_contact_email>`
+- We will not publicly disclose bug details until they are patched.
 
-## ⚙️ Quy trình xử lý
-1. Tiếp nhận và xác nhận trong 72 giờ.
-2. Vá lỗi trong vòng 14 ngày.
-3. Công bố và ghi nhận đóng góp.
+## ⚙️ Processing Procedure
+1. Receive and confirm within 72 hours.
 
-## 🔐 Phạm vi
-Bao gồm tất cả mã trong:
+2. Patch within 14 days.
+
+3. Publish and acknowledge contributions.
+
+## 🔐 Area
+All the source code in:
+
 ``` plaintext
 /adaptive/
 │
 ├── /core/              # Kernel-level AI plugins
-├── /context/           # Dữ liệu ngữ cảnh
-├── /human_feedback/    # Feedback và mô phỏng human-in-loop
-├── /trust_profiles/    # Hồ sơ độ tin cậy của agent/human
-├── /ai_plugins/        # Các plugin AI độc lập
-├── /recovery/          # Module tự phục hồi
-├── /sandbox/           # Khu vực thử nghiệm (low-trust)
-└── /apps/              # Ứng dụng người dùng chạy trên Adaptive OS
+├── /context/           # Context data
+├── /human_feedback/    # Feedback and simulate human-in-loop
+├── /trust_profiles/    # Trust agent/human
+├── /ai_plugins/        # Plugin AI 
+├── /recovery/          # Self - repair module
+├── /sandbox/           # Testing (low-trust)
+└── /apps/              # Applications that runs in Adaptive OS
+
 ```
