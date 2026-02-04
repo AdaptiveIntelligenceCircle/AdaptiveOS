@@ -9,15 +9,15 @@
 
 ## 🧠 **Tư Duy Thiết Kế Cấu Trúc Adaptive OS**
 
-Dưới đây là một cấu trúc đề xuất có thể hiện thực hóa triết lý đó:
+Here is a proposed structure that could realize that philosophy:
 
 ---
 
 ### 🏛️ 1. **Microkernel + Plugin Architecture**
 
-> Tương tự như Minix / seL4 nhưng mở rộng sang Adaptive AI.
+> Similar to Minix/seL4 but expanded to include Adaptive AI.
 
-| Thành phần        | Vai trò                                                                 |
+| Components        | Rules                                                                  |
 | ----------------- | ----------------------------------------------------------------------- |
 | `AdaptiveKernel`  | Nhân gọn nhẹ: quản lý luồng, bộ nhớ, IPC                                |
 | `DevicePlugin`    | Driver dưới dạng module có thể hot-swap                                 |
@@ -26,7 +26,7 @@ Dưới đây là một cấu trúc đề xuất có thể hiện thực hóa tr
 
 ---
 
-### 🌐 2. Phân Tán (Decentralized Core Services)
+### 🌐 2. Decentralized Core Services
 
 + NodeManager               :  Mỗi instance của Adaptive OS là một nút
 + TrustBus	                :  Cơ chế truyền tin an toàn giữa các node
@@ -45,45 +45,51 @@ Một tầng giữa kernel và user space, phụ trách thích nghi môi trườ
 |   Repair Controller  |  ← tự fix service lỗi, rollback module
 +----------------------+
 ```
-###  🗂️ 4. Filesystem Layer (Cảm hứng từ Linux + AI Semantics)
+###  🗂️ 4. Filesystem Layer (Inspired by Linux + AI Semantics)
 
 ```plaintext
 /adaptive/
 │
 ├── /core/              # Kernel-level AI plugins
-├── /context/           # Dữ liệu ngữ cảnh
-├── /human_feedback/    # Feedback và mô phỏng human-in-loop
-├── /trust_profiles/    # Hồ sơ độ tin cậy của agent/human
-├── /ai_plugins/        # Các plugin AI độc lập
-├── /recovery/          # Module tự phục hồi
-├── /sandbox/           # Khu vực thử nghiệm (low-trust)
-└── /apps/              # Ứng dụng người dùng chạy trên Adaptive OS
+├── /context/           # context data
+├── /human_feedback/    # Feedback and simuluate human-in-loop
+├── /trust_profiles/    # trust agent/human
+├── /ai_plugins/        # plugin AI 
+├── /recovery/          
+├── /sandbox/           # Testing (low-trust)
+└── /apps/              # Application that runs in Adaptive OS. 
 
 ```
 ### 🧩 5. User Space = AI Space
-+ Không tách biệt AI và ứng dụng người dùng. Ứng dụng nào cũng là một AI-agent hoặc được quản lý bởi AI Supervisor.
 
-+ Supervisor AI: theo dõi hành vi hệ thống, đánh giá trust, ra quyết định kiểm soát
++ There is no separation between AI and user applications. Every application is either an AI agent or managed by an AI Supervisor.
 
-+ AgentStore: giống AppStore nhưng mỗi “app” là một plugin AI có thể training hoặc deploy theo môi trường
++ AI Supervisor: monitors system behavior, assesses trust, and makes control decisions.
+
++ AgentStore: similar to AppStore, but each "app" is an AI plugin that can be trained or deployed according to the environment.
 
 ### 🛡️ 6. Security & Trust Model
-+ TrustScoreManager: tính điểm tin cậy cho từng process, service, người dùng
 
-+ Adaptive Defense Module: tự động chuyển về “defensive mode” nếu thấy bất thường (inspired by Trust-based Self-Defense)
++ TrustScoreManager: Calculates trust scores for each process, service, and user.
 
-+ HumanPolicyLayer: cho phép người dùng tốt tác động vào AI (nhưng bị giới hạn nếu trust thấp)
++ Adaptive Defense Module: Automatically switches to "defense mode" if anomalies are detected (inspired by Trust-based Self-Defense).
+
++ HumanPolicyLayer: Allows good users to interact with the AI ​​(but is limited if trust is low).
+
 --- 
 ### 🔧 Hướng Triển Khai Ban Đầu
-Dựa trên Linux (kernel mod, distro riêng) nhưng ẩn hoàn toàn userland gốc.
 
-Viết kernel module giả lập AdaptiveKernel để mô phỏng.
++ Based on Linux (modified kernel, private distro) but completely hides the original userland.
 
-Plugin gắn vào dạng .so hoặc dynamic load module.
++ Write a kernel module to emulate the AdaptiveKernel.
 
-Kết hợp với middleware (ZeroMQ, gRPC, WebAssembly nếu cần di động).
++ Plugins are attached as .so files or dynamic load modules.
+
++ Combine with middleware (ZeroMQ, gRPC, WebAssembly if portability is required).
+
 --- 
-### Thiết kế tổng thể 
+### Structure 
+
 ```plaintext
 +----------------------+
 |   Self-Adaptive API  |  ← giao diện cho meta-learning, policy switching
@@ -125,3 +131,13 @@ AdaptiveOS/
 └── docs/                      # Tài liệu
     └── README.md
 ```
+
+
+## Download (options)
+
+```bash 
+git clone <link>.git
+```
+
+## LICENSE 
+General Public License (GPL-3.0) - see on LICENSE
