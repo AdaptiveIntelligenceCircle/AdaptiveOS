@@ -1,13 +1,13 @@
 # AdaptiveOS
 
-**Adaptive OS** là một hệ điều hành lai: vừa **độc lập** như một hệ sinh thái riêng, vừa **phân tán** để đảm bảo an toàn và khả năng tự thích nghi, nhưng vẫn kế thừa những ưu điểm từ **Windows** (UI/UX, dịch vụ quản lý hệ thống) và **Linux** (modular, quyền root, cộng đồng phát triển).
+Adaptive OS is a hybrid operating system: it is both independent as a separate ecosystem and distributed to ensure security and adaptability, while still inheriting the advantages of Windows (UI/UX, system management services) and Linux (modular, root privileges, development community).
 
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/79658f28-9111-48fd-ae8d-2577af348396" />
 
 
 ---
 
-## 🧠 **Tư Duy Thiết Kế Cấu Trúc Adaptive OS**
+## 🧠 **The Philosophy of Adaptive OS**
 
 Here is a proposed structure that could realize that philosophy:
 
@@ -77,7 +77,7 @@ Một tầng giữa kernel và user space, phụ trách thích nghi môi trườ
 + HumanPolicyLayer: Allows good users to interact with the AI ​​(but is limited if trust is low).
 
 --- 
-### 🔧 Hướng Triển Khai Ban Đầu
+### 🔧 The First Plan.
 
 + Based on Linux (modified kernel, private distro) but completely hides the original userland.
 
