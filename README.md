@@ -19,30 +19,31 @@ Here is a proposed structure that could realize that philosophy:
 
 | Components        | Rules                                                                  |
 | ----------------- | ----------------------------------------------------------------------- |
-| `AdaptiveKernel`  | Nhân gọn nhẹ: quản lý luồng, bộ nhớ, IPC                                |
-| `DevicePlugin`    | Driver dưới dạng module có thể hot-swap                                 |
-| `SecurityPlugin`  | Tường lửa, sandbox, dynamic trust-based isolation                       |
-| `AIPluginManager` | Loader & scheduler cho các plugin AI như meta-learning, behavior engine |
+| `AdaptiveKernel`  | Lightweight kernel: manages threads, memory, and IPC.                                |
+| `DevicePlugin`    | Drivers are in modular form and can be hot-swap.                   |
+| `SecurityPlugin`  | Firewall, sandbox, dynamic trust-based isolation                       |
+| `AIPluginManager` | Loader & scheduler for plugin AI : meta-learning, behavior engine |
 
 ---
 
 ### 🌐 2. Decentralized Core Services
 
-+ NodeManager               :  Mỗi instance của Adaptive OS là một nút
-+ TrustBus	                :  Cơ chế truyền tin an toàn giữa các node
-+ BehaviorSync   	        :  Đồng bộ chiến lược hành vi giữa các AI-instance
-+ FederatedLearningPlugin	:  Huấn luyện AI theo nhóm (chủ động)
++ NodeManager: Each instance of Adaptive OS is a node.
++ TrustBus: Secure communication mechanism between nodes.
++ BehaviorSync: Synchronizes behavioral strategies between AI instances.
++ FederatedLearningPlugin: Proactive group AI training.
 
 ### 🧬 3. **Self-Adaptive Layer**
 
-Một tầng giữa kernel và user space, phụ trách thích nghi môi trường:
+A layer between the kernel and user space, responsible for adapting to the environment:
+
 ```plaintext
 +----------------------+
-|   Self-Adaptive API  |  ← giao diện cho meta-learning, policy switching
+|   Self-Adaptive API  |  ← interface for meta-learning, policy switching
 +----------------------+
 |   Monitoring Agents  |  ← sensing, trust analyzer, resource auditor
 |   Reasoning Engine   |  ← context-aware + logic defuzzifier
-|   Repair Controller  |  ← tự fix service lỗi, rollback module
+|   Repair Controller  |  ← fix bugs, rollback module
 +----------------------+
 ```
 ###  🗂️ 4. Filesystem Layer (Inspired by Linux + AI Semantics)
@@ -92,43 +93,43 @@ Một tầng giữa kernel và user space, phụ trách thích nghi môi trườ
 
 ```plaintext
 +----------------------+
-|   Self-Adaptive API  |  ← giao diện cho meta-learning, policy switching
+|   Self-Adaptive API  |  ← interface for meta-learning, policy switching
 +----------------------+
 |   Monitoring Agents  |  ← sensing, trust analyzer, resource auditor
 |   Rplaintext
 AdaptiveOS/
 ├── microkernel/               # Microkernel core
-│   ├── src/                   # Code nguồn kernel
-│   │   ├── core.c             # Quản lý tiến trình, giao tiếp
+│   ├── src/                   # kernel source code
+│   │   ├── core.c             # Manage process
 │   │   ├── ipc.c              # Inter-Process Communication (message passing)
-│   │   └── scheduler.c        # Lập lịch tiến trình
-│   └── Makefile               # Biên dịch kernel
-├── modules/                   # Các module độc lập
+│   │   └── scheduler.c        # scheduler
+│   └── Makefile               # Implement kernel
+├── modules/                   # Single module
 │   ├── adaptive_ai/           # Module Adaptive AI
-│   │   ├── src/               # Code nguồn
-│   │   │   ├── ai_core.cpp    # Logic chính của Adaptive AI
+│   │   ├── src/               # source code
+│   │   │   ├── ai_core.cpp    # Logic of Adaptive AI
 │   │   │   ├── meta_learn.cpp # Meta-learning
-│   │   │   └── hitl_interface.cpp # Giao diện HITL
+│   │   │   └── hitl_interface.cpp # Interface of HITL
 │   │   └── Makefile
-│   ├── networking/            # Module mạng
+│   ├── networking/            # Module network
 │   │   ├── src/
-│   │   │   └── netfilter.c    # Phân tích gói tin
+│   │   │   └── netfilter.c    # analyze packets
 │   │   └── Makefile
 │   └── filesystem/            # Module file system
 │       ├── src/
 │       │   └── vfs.c          # Virtual File System
 │       └── Makefile
-├── user_space/                # Công cụ user-space
+├── user_space/                # Tools for user-space
 │   ├── src/
-│   │   ├── main.c             # Chương trình chính
-│   │   └── hitl_ui.c          # Giao diện người dùng cho HITL
+│   │   ├── main.c             # main program
+│   │   └── hitl_ui.c          # Interface for HITL
 │   └── Makefile
-├── plugins/                   # Plugins phân tán
+├── plugins/                   # decentralized plugins. 
 │   ├── src/
-│   │   ├── plugin_server.c    # Server nhận message từ các module
-│   │   └── plugin_client.c    # Client gửi message
+│   │   ├── plugin_server.c    # Server received message from modules
+│   │   └── plugin_client.c    # Client send message
 │   └── Makefile
-└── docs/                      # Tài liệu
+└── docs/                      # Documentation. 
     └── README.md
 ```
 
